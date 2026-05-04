@@ -1,0 +1,234 @@
+/* ============================================================
+   WASCO Billing Portal - Stylesheet
+   Theme: Clean utility/government with water blue accents
+   ============================================================ */
+
+:root {
+    --blue-900: #0a2540;
+    --blue-700: #0d47a1;
+    --blue-500: #1565c0;
+    --blue-400: #1e88e5;
+    --blue-200: #90caf9;
+    --blue-100: #e3f2fd;
+    --teal:     #00796b;
+    --teal-lt:  #b2dfdb;
+    --green:    #2e7d32;
+    --red:      #c62828;
+    --orange:   #e65100;
+    --white:    #ffffff;
+    --grey-50:  #fafafa;
+    --grey-100: #f5f5f5;
+    --grey-300: #e0e0e0;
+    --grey-600: #757575;
+    --grey-900: #212121;
+    --radius:   8px;
+    --shadow:   0 2px 8px rgba(0,0,0,.12);
+    --shadow-md:0 4px 16px rgba(0,0,0,.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--grey-50);
+    color: var(--grey-900);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+/* ---- NAVBAR ---- */
+.navbar {
+    background: var(--blue-900);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: .8rem 2rem;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+
+.nav-brand { display: flex; align-items: center; gap: .5rem; }
+.brand-icon { font-size: 1.6rem; }
+.brand-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; letter-spacing: .05em; }
+.brand-sub { font-size: .7rem; color: var(--blue-200); text-transform: uppercase; letter-spacing: .1em; }
+
+.nav-links { display: flex; gap: .3rem; flex: 1; flex-wrap: wrap; }
+.nav-links a {
+    color: var(--blue-200);
+    text-decoration: none;
+    padding: .4rem .8rem;
+    border-radius: var(--radius);
+    font-size: .9rem;
+    transition: background .2s, color .2s;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--blue-500); color: white; }
+
+.nav-user { display: flex; align-items: center; gap: 1rem; margin-left: auto; }
+.user-name { font-size: .85rem; color: var(--blue-200); }
+.btn-logout {
+    background: transparent;
+    border: 1px solid var(--blue-400);
+    color: var(--blue-200);
+    padding: .35rem .8rem;
+    border-radius: var(--radius);
+    font-size: .85rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s;
+}
+.btn-logout:hover { background: var(--blue-500); color: white; }
+
+/* ---- MAIN ---- */
+.main-content { flex: 1; padding: 2rem; max-width: 1200px; width: 100%; margin: 0 auto; }
+
+/* ---- PAGE HEADER ---- */
+.page-header { margin-bottom: 2rem; }
+.page-header h1 { font-size: 1.8rem; color: var(--blue-900); }
+.page-header p { color: var(--grey-600); margin-top: .3rem; }
+
+/* ---- CARDS ---- */
+.card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--blue-700); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: .05em; }
+
+/* ---- STAT GRID ---- */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.2rem 1.5rem;
+    border-left: 4px solid var(--blue-400);
+    transition: transform .2s, box-shadow .2s;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.stat-card.green { border-color: var(--green); }
+.stat-card.red { border-color: var(--red); }
+.stat-card.teal { border-color: var(--teal); }
+.stat-card.orange { border-color: var(--orange); }
+.stat-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--grey-600); margin-bottom: .4rem; }
+.stat-value { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--blue-900); }
+.stat-sub { font-size: .8rem; color: var(--grey-600); margin-top: .2rem; }
+
+/* ---- TABLES ---- */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+thead th { background: var(--blue-900); color: white; padding: .75rem 1rem; text-align: left; font-family: 'Syne', sans-serif; font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+tbody tr { border-bottom: 1px solid var(--grey-300); transition: background .15s; }
+tbody tr:hover { background: var(--blue-100); }
+tbody td { padding: .7rem 1rem; }
+
+/* ---- BADGES ---- */
+.badge { display: inline-block; padding: .2rem .6rem; border-radius: 20px; font-size: .75rem; font-weight: 500; }
+.badge-paid    { background: #e8f5e9; color: var(--green); }
+.badge-unpaid  { background: #ffebee; color: var(--red); }
+.badge-partial { background: #fff3e0; color: var(--orange); }
+.badge-overdue { background: #fce4ec; color: #880e4f; }
+.badge-open    { background: #ffebee; color: var(--red); }
+.badge-in_progress { background: #fff3e0; color: var(--orange); }
+.badge-resolved { background: #e8f5e9; color: var(--green); }
+.badge-admin   { background: #e3f2fd; color: var(--blue-700); }
+.badge-branch_manager { background: #ede7f6; color: #4527a0; }
+.badge-customer{ background: #f3e5f5; color: #6a1b9a; }
+
+/* ---- FORMS ---- */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: .85rem; font-weight: 500; margin-bottom: .3rem; color: var(--grey-900); }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: .6rem .9rem;
+    border: 1px solid var(--grey-300);
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    transition: border-color .2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--blue-400);
+    box-shadow: 0 0 0 3px rgba(30,136,229,.15);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ---- BUTTONS ---- */
+.btn {
+    display: inline-block;
+    padding: .55rem 1.2rem;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: opacity .2s, transform .1s;
+}
+.btn:hover { opacity: .88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary   { background: var(--blue-500); color: white; }
+.btn-success   { background: var(--green); color: white; }
+.btn-danger    { background: var(--red); color: white; }
+.btn-outline   { background: transparent; border: 1px solid var(--blue-400); color: var(--blue-500); }
+.btn-sm        { padding: .3rem .7rem; font-size: .8rem; }
+
+/* ---- ALERTS ---- */
+.alert { padding: .9rem 1.2rem; border-radius: var(--radius); margin-bottom: 1rem; font-size: .9rem; }
+.alert-success { background: #e8f5e9; color: var(--green); border-left: 4px solid var(--green); }
+.alert-error   { background: #ffebee; color: var(--red); border-left: 4px solid var(--red); }
+.alert-info    { background: var(--blue-100); color: var(--blue-700); border-left: 4px solid var(--blue-400); }
+
+/* ---- FOOTER ---- */
+.footer {
+    background: var(--blue-900);
+    color: var(--blue-200);
+    text-align: center;
+    padding: 1rem;
+    font-size: .8rem;
+    margin-top: auto;
+}
+.footer .db-info { color: var(--blue-200); opacity: .6; margin-top: .3rem; font-size: .75rem; }
+
+/* ---- LOGIN PAGE ---- */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-500) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-box {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+.login-logo { text-align: center; margin-bottom: 2rem; }
+.login-logo .icon { font-size: 3rem; display: block; }
+.login-logo h1 { font-family: 'Syne', sans-serif; font-size: 1.6rem; color: var(--blue-900); }
+.login-logo p { color: var(--grey-600); font-size: .85rem; }
+
+/* ---- CHART PLACEHOLDER ---- */
+.chart-area { min-height: 200px; background: var(--grey-100); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--grey-600); font-size: .9rem; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+    .main-content { padding: 1rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .navbar { gap: .5rem; padding: .8rem 1rem; }
+    .nav-links { display: none; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+}
